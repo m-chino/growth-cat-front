@@ -8,6 +8,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import {UPDATE_MESSAGE} from './../store/mutation-types'
 export default {
   name: 'HelloWorld',
   data () {
@@ -22,7 +23,7 @@ export default {
   },
   methods: {
     update () {
-      this.$store.commit('updateMsg', this.newMsg)
+      this.$store.commit(UPDATE_MESSAGE, this.newMsg)
     }
   }
 }

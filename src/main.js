@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Vuex from 'vuex'
+import {UPDATE_MESSAGE} from './store/mutation-types'
 Vue.use(Vuex)
 
 // Vue.config.productionTip = false
@@ -12,7 +13,7 @@ const store = new Vuex.Store({
     msg: 'Hello'
   },
   mutations: {
-    updateMsg (state, newMsg) {
+    [UPDATE_MESSAGE] (state, newMsg) {
       state.msg = newMsg
     }
   }
