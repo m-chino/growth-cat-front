@@ -10,6 +10,11 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
     msg: 'Hello'
+  },
+  mutations: {
+    updateMsg (state, newMsg) {
+      state.msg = newMsg
+    }
   }
 })
 
