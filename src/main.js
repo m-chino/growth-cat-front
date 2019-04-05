@@ -3,13 +3,21 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import Vuex from 'vuex'
+Vue.use(Vuex)
 
-Vue.config.productionTip = false
+// Vue.config.productionTip = false
+const store = new Vuex.Store({
+  state: {
+    msg: 'Hello'
+  }
+})
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  store
 })
