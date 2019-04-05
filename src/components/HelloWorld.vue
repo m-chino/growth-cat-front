@@ -1,20 +1,28 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+      <input type="text" v-model="newMsg"/>
+      <button @click="update">更新</button>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'HelloWorld',
   data () {
     return {
-      // msg: 'Welcome to Your Vue.js App'
+      newMsg: null
     }
   },
   computed: {
-    msg () {
-      return this.$store.state.msg
+    ...mapState({
+      msg: state => state.msg
+    })
+  },
+  methods: {
+    update () {
+      this.$store.state.msg = this.newMsg
     }
   }
 }
