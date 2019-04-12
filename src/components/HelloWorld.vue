@@ -3,12 +3,13 @@
     <h1>{{ msg }}</h1>
       <input type="text" v-model="newMsg"/>
       <button @click="update">更新</button>
+      <button @click="repeat">繰り返す</button>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import {UPDATE_MESSAGE} from './../store/mutation-types'
+import { UPDATE_MESSAGE } from './../store/mutation-types'
 export default {
   name: 'HelloWorld',
   data () {
@@ -24,6 +25,9 @@ export default {
   methods: {
     update () {
       this.$store.commit(UPDATE_MESSAGE, this.newMsg)
+    },
+    repeat () {
+      this.$store.dispatch('repeat')
     }
   }
 }

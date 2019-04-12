@@ -16,6 +16,12 @@ const store = new Vuex.Store({
     [UPDATE_MESSAGE] (state, newMsg) {
       state.msg = newMsg
     }
+  },
+  actions: {
+    repeat (context) {
+      let msg = context.state.msg
+      context.commit(UPDATE_MESSAGE, `${msg} ${msg}`)
+    }
   }
 })
 
