@@ -1,3 +1,5 @@
 export const UPDATE_MESSAGE = 'UPDATE_MESSAGE'
 
-export const DUMMY_TYPE = 'DUMMY_TYPE'
+export const UPDATE_MOMENT = 'UPDATE_MOMENT'
+
+export const GET_NEW_MOMENT = 'GET_NEW_MOMENT'

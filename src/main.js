@@ -4,35 +4,47 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Vuex from 'vuex'
-import {UPDATE_MESSAGE} from './store/mutation-types'
+import {UPDATE_MESSAGE, UPDATE_MOMENT, GET_NEW_MOMENT} from './store/mutation-types'
+import axios from 'axios'
 Vue.use(Vuex)
 
 // Vue.config.productionTip = false
+const API_URL = 'http://lpc-2116.gxp.local:8080'
 const store = new Vuex.Store({
   state: {
     msg: 'Hello',
-    moment: {
-      regsterTimestamp: '2019-03-29 16:00:51',
-      accelerationmeterX: 10.5,
-      accelerationmeterY: 10.5,
-      accelerationmeterZ: 10.5,
-      gyroscopeX: 10.5,
-      gyroscopeY: 10.5,
-      gyroscopeZ: 10.5,
-      magnetometerX: 10.5,
-      magnetometerY: 10.5,
-      magnetometerZ: 10.5
-    }
+    moments: [{
+      registerTimestamp: '2019-04-16T23:59:59.000+0000',
+      accelerationmeter_x: 9,
+      accelerationmeter_y: -8,
+      accelerationmeter_z: 0.7,
+      gyroscope_x: 66666666,
+      gyroscope_y: 5.5555555,
+      gyroscope_z: -0.04,
+      magnetometer_x: 333,
+      magnetometer_y: 222,
+      magnetometer_z: 111
+    }]
   },
   mutations: {
     [UPDATE_MESSAGE] (state, newMsg) {
       state.msg = newMsg
+    },
+    [UPDATE_MOMENT] (state, newMoment) {
+      state.moments = newMoment
     }
   },
   actions: {
     repeat (context) {
       let msg = context.state.msg
       context.commit(UPDATE_MESSAGE, `${msg} ${msg}`)
+    },
+    [GET_NEW_MOMENT] () {
+      axios.get(API_URL + '/motion/' + '001-001-001').then(res => {
+        this.commit(UPDATE_MOMENT, res.data)
+      }).catch(error => {
+        throw error
+      })
     }
   }
 })

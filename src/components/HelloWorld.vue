@@ -5,23 +5,23 @@
       <button @click="update">更新</button>
       <button @click="repeat">繰り返す</button>
       <div>
-        <p>更新日時:{{moment.regsterTimestamp}}</p>
-        <p>加速度X軸:{{moment.accelerationmeterX}}</p>
-        <p>加速度Y軸:{{moment.accelerationmeterY}}</p>
-        <p>加速度Z軸:{{moment.accelerationmeterZ}}</p>
-        <p>角加速度X軸:{{moment.gyroscopeX}}</p>
-        <p>角加速度Y軸:{{moment.gyroscopeY}}</p>
-        <p>角加速度Z軸:{{moment.gyroscopeZ}}</p>
-        <p>磁気強度X軸:{{moment.magnetometerX}}</p>
-        <p>磁気強度Y軸:{{moment.magnetometerY}}</p>
-        <p>磁気強度Z軸:{{moment.magnetometerZ}}</p>
+        <p>更新日時:{{moment.registerTimestamp}}</p>
+        <p>加速度X軸:{{moment.accelerationmeter_x}}</p>
+        <p>加速度Y軸:{{moment.accelerationmeter_y}}</p>
+        <p>加速度Z軸:{{moment.accelerationmeter_z}}</p>
+        <p>角加速度X軸:{{moment.gyroscope_x}}</p>
+        <p>角加速度Y軸:{{moment.gyroscope_y}}</p>
+        <p>角加速度Z軸:{{moment.gyroscope_z}}</p>
+        <p>磁気強度X軸:{{moment.magnetometer_x}}</p>
+        <p>磁気強度Y軸:{{moment.magnetometer_y}}</p>
+        <p>磁気強度Z軸:{{moment.magnetometer_z}}</p>
       </div>
     </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import { UPDATE_MESSAGE } from './../store/mutation-types'
+import { UPDATE_MESSAGE, GET_NEW_MOMENT } from './../store/mutation-types'
 export default {
   name: 'HelloWorld',
   data () {
@@ -32,12 +32,13 @@ export default {
   computed: {
     ...mapState({
       msg: state => state.msg,
-      moment: state => state.moment
+      moment: state => state.moments[ state.moments.length - 1 ]
     })
   },
   methods: {
     update () {
       this.$store.commit(UPDATE_MESSAGE, this.newMsg)
+      this.$store.dispatch(GET_NEW_MOMENT)
     },
     repeat () {
       this.$store.dispatch('repeat')
