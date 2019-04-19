@@ -1,10 +1,22 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>Growth-cat</h1>
       <input type="text" v-model="newMsg"/>
       <button @click="update">更新</button>
       <button @click="repeat">繰り返す</button>
-  </div>
+      <div>
+        <p>更新日時:{{msg}}</p>
+        <p>加速度X軸:{{msg}}</p>
+        <p>加速度Y軸:{{msg}}</p>
+        <p>加速度Z軸:{{msg}}</p>
+        <p>角加速度X軸:{{msg}}</p>
+        <p>角加速度Y軸:{{msg}}</p>
+        <p>角加速度Z軸:{{msg}}</p>
+        <p>磁気強度X軸:{{msg}}</p>
+        <p>磁気強度Y軸:{{msg}}</p>
+        <p>磁気強度Z軸:{{msg}}</p>
+      </div>
+    </div>
 </template>
 
 <script>
