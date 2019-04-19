@@ -5,16 +5,16 @@
       <button @click="update">更新</button>
       <button @click="repeat">繰り返す</button>
       <div>
-        <p>更新日時:{{msg}}</p>
-        <p>加速度X軸:{{msg}}</p>
-        <p>加速度Y軸:{{msg}}</p>
-        <p>加速度Z軸:{{msg}}</p>
-        <p>角加速度X軸:{{msg}}</p>
-        <p>角加速度Y軸:{{msg}}</p>
-        <p>角加速度Z軸:{{msg}}</p>
-        <p>磁気強度X軸:{{msg}}</p>
-        <p>磁気強度Y軸:{{msg}}</p>
-        <p>磁気強度Z軸:{{msg}}</p>
+        <p>更新日時:{{moment.regsterTimestamp}}</p>
+        <p>加速度X軸:{{moment.accelerationmeterX}}</p>
+        <p>加速度Y軸:{{moment.accelerationmeterY}}</p>
+        <p>加速度Z軸:{{moment.accelerationmeterZ}}</p>
+        <p>角加速度X軸:{{moment.gyroscopeX}}</p>
+        <p>角加速度Y軸:{{moment.gyroscopeY}}</p>
+        <p>角加速度Z軸:{{moment.gyroscopeZ}}</p>
+        <p>磁気強度X軸:{{moment.magnetometerX}}</p>
+        <p>磁気強度Y軸:{{moment.magnetometerY}}</p>
+        <p>磁気強度Z軸:{{moment.magnetometerZ}}</p>
       </div>
     </div>
 </template>
@@ -31,7 +31,8 @@ export default {
   },
   computed: {
     ...mapState({
-      msg: state => state.msg
+      msg: state => state.msg,
+      moment: state => state.moment
     })
   },
   methods: {

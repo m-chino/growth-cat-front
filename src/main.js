@@ -10,7 +10,19 @@ Vue.use(Vuex)
 // Vue.config.productionTip = false
 const store = new Vuex.Store({
   state: {
-    msg: 'Hello'
+    msg: 'Hello',
+    moment: {
+      regsterTimestamp: '2019-03-29 16:00:51',
+      accelerationmeterX: 10.5,
+      accelerationmeterY: 10.5,
+      accelerationmeterZ: 10.5,
+      gyroscopeX: 10.5,
+      gyroscopeY: 10.5,
+      gyroscopeZ: 10.5,
+      magnetometerX: 10.5,
+      magnetometerY: 10.5,
+      magnetometerZ: 10.5
+    }
   },
   mutations: {
     [UPDATE_MESSAGE] (state, newMsg) {
