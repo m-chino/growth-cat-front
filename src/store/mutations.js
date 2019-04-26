@@ -1,0 +1,3 @@
+export const UPDATE_MOMENT = 'UPDATE_MOMENT'
+
+export const GET_NEW_MOMENT = 'GET_NEW_MOMENT'
