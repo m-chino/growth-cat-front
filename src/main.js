@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Vuex from 'vuex'
-import {UPDATE_MESSAGE, UPDATE_MOMENT, GET_NEW_MOMENT} from './store/mutation-types'
+import {UPDATE_MOMENT, GET_NEW_MOMENT} from './store/mutation-types'
 import axios from 'axios'
 Vue.use(Vuex)
 
@@ -12,7 +12,6 @@ Vue.use(Vuex)
 const API_URL = 'http://lpc-2116.gxp.local:8080'
 const store = new Vuex.Store({
   state: {
-    msg: 'Hello',
     moments: [{
       registerTimestamp: '2019-04-16T23:59:59.000+0000',
       accelerationmeter_x: 9,
@@ -27,18 +26,11 @@ const store = new Vuex.Store({
     }]
   },
   mutations: {
-    [UPDATE_MESSAGE] (state, newMsg) {
-      state.msg = newMsg
-    },
     [UPDATE_MOMENT] (state, newMoment) {
       state.moments = newMoment
     }
   },
   actions: {
-    repeat (context) {
-      let msg = context.state.msg
-      context.commit(UPDATE_MESSAGE, `${msg} ${msg}`)
-    },
     [GET_NEW_MOMENT] () {
       axios.get(API_URL + '/motion/' + '001-001-001').then(res => {
         this.commit(UPDATE_MOMENT, res.data)

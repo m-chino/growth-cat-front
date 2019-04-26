@@ -1,9 +1,7 @@
 <template>
   <div class="hello">
     <h1>Growth-cat</h1>
-      <input type="text" v-model="newMsg"/>
       <button @click="update">更新</button>
-      <button @click="repeat">繰り返す</button>
       <div>
         <p>更新日時:{{moment.registerTimestamp}}</p>
         <p>加速度X軸:{{moment.accelerationmeter_x}}</p>
@@ -21,27 +19,17 @@
 
 <script>
 import { mapState } from 'vuex'
-import { UPDATE_MESSAGE, GET_NEW_MOMENT } from './../store/mutation-types'
+import { GET_NEW_MOMENT } from './../store/mutation-types'
 export default {
-  name: 'HelloWorld',
-  data () {
-    return {
-      newMsg: null
-    }
-  },
+  name: 'Growthcat',
   computed: {
     ...mapState({
-      msg: state => state.msg,
       moment: state => state.moments[ state.moments.length - 1 ]
     })
   },
   methods: {
     update () {
-      this.$store.commit(UPDATE_MESSAGE, this.newMsg)
       this.$store.dispatch(GET_NEW_MOMENT)
-    },
-    repeat () {
-      this.$store.dispatch('repeat')
     }
   }
 }
