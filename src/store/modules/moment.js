@@ -3,7 +3,6 @@ import axios from 'axios'
 /* eslint-disable */
 
 const API_URL = 'http://lpc-2116.gxp.local:8080'
-const deviceId = '001-001-001'
 
 export const Moments = {
     state: {
@@ -26,7 +25,7 @@ export const Moments = {
         }
     },
     actions: {
-        [GET_NEW_MOMENT] () {
+        [GET_NEW_MOMENT] (state, deviceId) {
             axios.get(API_URL + '/motion/' + deviceId).then(res => {
                 this.commit(UPDATE_MOMENT, res.data)
             }).catch(error => {

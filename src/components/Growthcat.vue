@@ -20,6 +20,8 @@
 <script>
 import { mapState } from 'vuex'
 import { GET_NEW_MOMENT } from './../store/mutations'
+
+const deviceId = '001-001-001'
 export default {
   name: 'Growthcat',
   computed: {
@@ -29,7 +31,7 @@ export default {
   },
   methods: {
     update () {
-      this.$store.dispatch(GET_NEW_MOMENT)
+      this.$store.dispatch(GET_NEW_MOMENT, deviceId)
     }
   }
 }
