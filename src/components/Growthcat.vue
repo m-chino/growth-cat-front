@@ -19,12 +19,12 @@
 
 <script>
 import { mapState } from 'vuex'
-import { GET_NEW_MOMENT } from './../store/mutation-types'
+import { GET_NEW_MOMENT } from './../store/mutations'
 export default {
   name: 'Growthcat',
   computed: {
     ...mapState({
-      moment: state => state.moments[ state.moments.length - 1 ]
+      moment: state => state.Moments.moments[ state.Moments.moments.length - 1 ]
     })
   },
   methods: {
