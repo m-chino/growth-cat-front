@@ -2,8 +2,6 @@ import {UPDATE_MOMENT, GET_NEW_MOMENT} from './../mutations'
 import axios from 'axios'
 /* eslint-disable */
 
-const API_URL = 'http://lpc-2116.gxp.local:8080'
-
 export const Moments = {
     state: {
         moments: [{
@@ -26,7 +24,7 @@ export const Moments = {
     },
     actions: {
         [GET_NEW_MOMENT] (state, deviceId) {
-            axios.get(API_URL + '/motion/' + deviceId).then(res => {
+            axios.get(process.env.API_ENDPOINT + '/motion/' + deviceId).then(res => {
                 this.commit(UPDATE_MOMENT, res.data)
             }).catch(error => {
                 throw error
