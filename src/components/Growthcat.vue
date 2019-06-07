@@ -21,7 +21,7 @@
 import { mapState } from 'vuex'
 import { GET_NEW_MOMENT } from './../store/mutations'
 
-const deviceId = '001-001-001'
+const deviceId = 'tag_id'
 export default {
   name: 'Growthcat',
   computed: {
