@@ -17,7 +17,8 @@ export const Moments = {
             gyroscope_z: 0,
             magnetometer_x: 0,
             magnetometer_y: 0,
-            magnetometer_z: 0
+            magnetometer_z: 0,
+            luxometer: 0
         }]
     },
     mutations: {
