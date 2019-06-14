@@ -1,3 +1,3 @@
-export const UPDATE_MOMENT = 'UPDATE_MOMENT'
+export const UPDATE_MOTIONS = 'UPDATE_MOTIONS'
 
-export const GET_NEW_MOMENT = 'GET_NEW_MOMENT'
+export const GET_NEW_MOTIONS = 'GET_NEW_MOTIONS'

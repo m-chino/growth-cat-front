@@ -1,13 +1,13 @@
-import {UPDATE_MOMENT, GET_NEW_MOMENT} from './../mutations'
+import {UPDATE_MOTIONS, GET_NEW_MOTIONS} from '../mutations'
 import axios from 'axios'
 /* eslint-disable */
 
 // ここをサーバのIPに合わせる
 const VUE_APP_API_URL_BASE =  'http://192.168.13.3:8080'
 
-export const Moments = {
+export const Motions = {
     state: {
-        moments: [{
+        motions: [{
             registerTimestamp: '1990-01-01T00:00:00.000+0000',
             accelerationmeter_x: 0,
             accelerationmeter_y: 0,
@@ -21,14 +21,14 @@ export const Moments = {
         }]
     },
     mutations: {
-        [UPDATE_MOMENT] (state, newMoment) {
-            state.moments = newMoment
+        [UPDATE_MOTIONS] (state, newMotions) {
+            state.motions = newMotions
         }
     },
     actions: {
-        [GET_NEW_MOMENT] (state, deviceId) {
+        [GET_NEW_MOTIONS] (state, deviceId) {
             axios.get(VUE_APP_API_URL_BASE + '/motion/' + deviceId).then(res => {
-                this.commit(UPDATE_MOMENT, res.data)
+                this.commit(UPDATE_MOTIONS, res.data)
             }).catch(error => {
                 throw error
             })
