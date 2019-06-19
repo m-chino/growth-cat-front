@@ -13,6 +13,7 @@
         <p>磁気強度X軸:{{motion.magnetometer_x}}</p>
         <p>磁気強度Y軸:{{motion.magnetometer_y}}</p>
         <p>磁気強度Z軸:{{motion.magnetometer_z}}</p>
+        <p>光度:{{motion.luxometer}}</p>
       </div>
     </div>
 </template>
