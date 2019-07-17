@@ -4,13 +4,13 @@ import Vue from 'vue'
 import App from './components/App'
 import router from './router'
 import Vuex from 'vuex'
-import { Moments } from './store/modules/moment'
+import { Motions } from './store/modules/motions'
 Vue.use(Vuex)
 
 // Vue.config.productionTip = false
 const store = new Vuex.Store({
   modules: {
-    Moments: Moments
+    Motions: Motions
   }
 })
 
