@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './components/App'
 import router from './router'
 import Vuex from 'vuex'
-import { Motions } from './store/modules/motions'
+import {Motions} from './store/modules/motions'
 Vue.use(Vuex)
 
 // Vue.config.productionTip = false
