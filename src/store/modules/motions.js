@@ -10,7 +10,7 @@ export const Motions = {
   state: {
     motions: [{
       registerTimestamp: '1990-01-01T00:00:00.000+0000',
-      accelerationmeter_x: 0,
+      accelerationmeter_x: 99,
       accelerationmeter_y: 0,
       accelerationmeter_z: 0,
       gyroscope_x: 0,
@@ -62,6 +62,9 @@ export const Motions = {
     },
     chart_option: () => {
       const option = {
+        //グラフの縦横比の自動調整を解除
+        maintainAspectRatio: false,
+        responsive: true,
         layout: {
           padding: {
             top: 20,
@@ -73,10 +76,13 @@ export const Motions = {
         scales: {
           yAxes: {
             ticks: {
+              maxTicks: 200,
+              autoSkip: false,
               fontSize: 18,
               min: 0,
-              max: 0.1,
-              stepSize: 0.05
+              max: 200,
+              stepSize: 20,
+              beginAtZero: true
             }
           }
         }

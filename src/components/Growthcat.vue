@@ -3,8 +3,9 @@
     <h1>Growth-cat</h1>
       <button @click="update">更新</button>
       <line-chart
+        class="chart"
         :chart-data="chart_motion"
-        :line-option="chart_option"
+        :options="chart_option"
       ></line-chart>
       <!--<div>-->
         <!--<p>更新日時:{{motion.registerTimestamp}}</p>-->
@@ -63,5 +64,9 @@ li {
 }
 a {
   color: #42b983;
+}
+.chart{
+  height: 500px;
+  width: 100%;
 }
 </style>
