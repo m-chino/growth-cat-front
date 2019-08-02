@@ -44,16 +44,43 @@ export const Motions = {
         data: luxometer
       }
 
-      let accelerationmeterXGraph = {
-        label: "運動量X値",
+      let accelerationmeterXYZGraph = {
+        label: "運動量",
         borderColor: '#ffa220',
+        type: 'line',
+        fill: false,
+        data: _.map(motions, (motion) => Math.sqrt(Math.pow(motion.accelerationmeter_x, 2) + Math.pow(motion.accelerationmeter_y, 2) + Math.pow(motion.accelerationmeter_z, 2)))
+      }
+
+      let accelerationmeterXGraph = {
+        label: "加速度X",
+        borderColor: '#ff0000',
         type: 'line',
         fill: false,
         data: _.map(motions, (motion) => motion.accelerationmeter_x)
       }
 
-      dataset.push(luxGraph)
+      let accelerationmeterYGraph = {
+        label: "加速度Y",
+        borderColor: '#00ff00',
+        type: 'line',
+        fill: false,
+        data: _.map(motions, (motion) => motion.accelerationmeter_y)
+      }
+
+      let accelerationmeterZGraph = {
+        label: "加速度Z",
+        borderColor: '#0000ff',
+        type: 'line',
+        fill: false,
+        data: _.map(motions, (motion) => motion.accelerationmeter_z)
+      }
+
+      // dataset.push(luxGraph)
+      dataset.push(accelerationmeterXYZGraph)
       dataset.push(accelerationmeterXGraph)
+      dataset.push(accelerationmeterYGraph)
+      dataset.push(accelerationmeterZGraph)
 
       return {
         labels: labels,
