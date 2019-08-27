@@ -1,6 +1,7 @@
 import {UPDATE_MOTIONS, GET_NEW_MOTIONS} from '../mutations'
 import axios from 'axios'
 import _ from 'lodash'
+import moment from 'moment'
 /* eslint-disable */
 
 // ここをサーバのIPに合わせる
@@ -9,7 +10,7 @@ const VUE_APP_API_URL_BASE = 'http://localhost:8080'
 export const Motions = {
   state: {
     motions: [{
-      registerTimestamp: '1990-01-01T00:00:00.000+0000',
+      registerTimestamp: '01-01 00:00',
       accelerationmeter_x: 99,
       accelerationmeter_y: 0,
       accelerationmeter_z: 0,
@@ -28,21 +29,9 @@ export const Motions = {
       let motions = state.motions
       // グラフの横軸ラベル（timestamp）
       let labels = _.map(motions, (motion) => {
-        return motion.registerTimestamp
+        return moment(motion.registerTimestamp).format("MM-DD HH:MM")
       })
       let dataset = []
-
-      let luxometer = _.map(motions, (motion) => {
-        return motion.luxometer
-      })
-      let luxGraph = {
-        label: "光量",
-        // backgroundColor: '#e249ff',
-        borderColor: '#e249ff',
-        type: 'line',
-        fill: false,
-        data: luxometer
-      }
 
       let accelerationmeterXYZGraph = {
         label: "運動量",
@@ -52,35 +41,7 @@ export const Motions = {
         data: _.map(motions, (motion) => Math.sqrt(Math.pow(motion.accelerationmeter_x, 2) + Math.pow(motion.accelerationmeter_y, 2) + Math.pow(motion.accelerationmeter_z, 2)))
       }
 
-      let accelerationmeterXGraph = {
-        label: "加速度X",
-        borderColor: '#ff0000',
-        type: 'line',
-        fill: false,
-        data: _.map(motions, (motion) => motion.accelerationmeter_x)
-      }
-
-      let accelerationmeterYGraph = {
-        label: "加速度Y",
-        borderColor: '#00ff00',
-        type: 'line',
-        fill: false,
-        data: _.map(motions, (motion) => motion.accelerationmeter_y)
-      }
-
-      let accelerationmeterZGraph = {
-        label: "加速度Z",
-        borderColor: '#0000ff',
-        type: 'line',
-        fill: false,
-        data: _.map(motions, (motion) => motion.accelerationmeter_z)
-      }
-
-      // dataset.push(luxGraph)
       dataset.push(accelerationmeterXYZGraph)
-      dataset.push(accelerationmeterXGraph)
-      dataset.push(accelerationmeterYGraph)
-      dataset.push(accelerationmeterZGraph)
 
       return {
         labels: labels,
@@ -114,7 +75,6 @@ export const Motions = {
           }
         }
       }
-      console.log('option:',option)
       return option;
     }
   },
