@@ -5,7 +5,7 @@ import moment from 'moment'
 /* eslint-disable */
 
 // ここをサーバのIPに合わせる
-const VUE_APP_API_URL_BASE = 'http://localhost:8080'
+const VUE_APP_API_URL_BASE = 'http://35.200.82.70:8080'
 
 export const Motions = {
   state: {

@@ -28,7 +28,7 @@ import {mapGetters, mapState} from 'vuex'
 import { GET_NEW_MOTIONS } from './../store/mutations'
 import LineChart from './LineChart'
 
-const deviceId = 'demo'
+const deviceId = 'demo1'
 export default {
   name: 'Growthcat',
   components: {LineChart},
